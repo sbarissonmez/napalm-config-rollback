@@ -1,9 +1,9 @@
 from napalm import get_network_driver
 driver = get_network_driver('eos')
-device = driver('172.29.151.8', 'lab', 'Nebula2021')
+device = driver('ip_address', 'username', 'password')
 device.open()
 
-device.load_replace_candidate(filename='leaf6.conf')
+device.load_replace_candidate(filename='device.conf')
 print (device.compare_config())
 
 if len(device.compare_config()) > 0:
